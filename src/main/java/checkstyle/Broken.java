@@ -2,25 +2,22 @@ package checkstyle;
 
 public class Broken {
     private int sizeOfEmpty = 10;
+    private String surname;
+    public static final String NEW_VALUE = ""; // Константа (public static final)
 
-    public String surname;
-
-    public static final String NEW_VALUE = "";
-
-    void echo() {
-
+    public Broken() {
     }
 
-    void media(Object obj) {
+    public void echo() {
+    }
+
+    public void media(Object obj) {
         if (obj != null) {
             System.out.println(obj);
         }
-
-        String name;
-        new Broken();
     }
 
-     void method(int a, int b, int c, int d, int e, int f, int g) {
-        return;
+    public void method(int a, int b, int c, int d, int e, int f, int g) {
+
     }
 }
