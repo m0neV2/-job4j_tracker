@@ -17,6 +17,5 @@ public class Jukebox {
         petya.music(1);
         petya.music(2);
         petya.music(3);
-
     }
 }
