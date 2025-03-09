@@ -3,7 +3,7 @@ package checkstyle;
 public class Broken {
     private int sizeOfEmpty = 10;
     private String surname;
-    public static final String NEW_VALUE = ""; // Константа (public static final)
+    public static final String NEW_VALUE = "";
 
     public Broken() {
     }
