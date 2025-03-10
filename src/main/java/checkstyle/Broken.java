@@ -3,6 +3,7 @@ package checkstyle;
 public class Broken {
     private int sizeOfEmpty = 10;
     private String surname;
+    private String name;
     public static final String NEW_VALUE = "";
 
     public Broken() {
