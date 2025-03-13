@@ -6,7 +6,7 @@ public class Error {
     private int status;
     private String message;
 
-    public Error (boolean active, int status, String message) {
+    public Error(boolean active, int status, String message) {
         this.active = active;
         this.status = status;
         this.message = message;
@@ -25,10 +25,9 @@ public class Error {
         System.out.println(message);
     }
 
-    public static void main(String [] args) {
+    public static void main(String[] args) {
         Error defaultError = new Error();
         defaultError.printInfo();
-
         Error error = new Error(true, 10, "Unknown");
         Error error1 = new Error(true, 500, "work");
         Error error2 = new Error(false, 200, "Unknown");
