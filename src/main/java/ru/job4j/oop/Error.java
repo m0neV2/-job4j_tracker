@@ -13,10 +13,6 @@ public class Error {
     }
 
     public Error() {
-        this.active = false;
-        this.status = 0;
-        this.message = "no error";
-
     }
 
     public void printInfo() {
