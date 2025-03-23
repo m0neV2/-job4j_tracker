@@ -6,7 +6,6 @@ import java.time.format.DateTimeFormatter;
 public class StartUi {
 
     public static void main(String[] args) {
-
         Item item = new Item();
 
         LocalDateTime created = item.getCreated();
