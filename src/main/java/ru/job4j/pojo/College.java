@@ -10,6 +10,8 @@ public class College {
         student.setGroup(3403);
         student.setEnter(new Date());
 
-        System.out.println("Student name: " + student.getName() + " Student group: " + student.getGroup() + '\n' + " When he entered: " + student.getEnter());
+        System.out.println("Student name: " + student.getName()
+               + System.lineSeparator() + "Student group: " + student.getGroup()
+               + System.lineSeparator() + "When he entered: " + student.getEnter());
     }
 }
