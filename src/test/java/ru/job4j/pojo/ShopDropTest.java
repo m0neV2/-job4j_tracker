@@ -55,37 +55,29 @@ public class ShopDropTest {
     }
 
     @Test
-    public void whenDeleteNullArrayThenReturnNullArray() {
-        Product[] products = null;
-        Product[] result = ShopDrop.delete(products, 1);
+    public void whenArrayIsNullThenReturnNull() {
+        Product[] result = ShopDrop.delete(null, 0);
         assertThat(result).isNull();
     }
 
     @Test
-    public void whenDeleteNegativeIndexThenReturnOriginalArray() {
-        Product[] products = {new Product("Milk", 10)};
+    public void whenIndexIsNegativeThenReturnSameArray() {
+        Product[] products = {new Product("Milk", 10), new Product("Bread", 4) };
         Product[] result = ShopDrop.delete(products, -1);
         assertThat(result).isEqualTo(products);
     }
 
     @Test
-    public void whenDeleteIndexOutOfBoundsThenReturnOriginalArray() {
-        Product[] products = {new Product("Bread", 5)};
-        Product[] result = ShopDrop.delete(products, 1);
+    public void whenIndexIsOutOfBoundsThenReturnSameArray() {
+        Product[] products = {new Product("Milk", 10), new Product("Bread", 4) };
+        Product[] result = ShopDrop.delete(products, 2);
         assertThat(result).isEqualTo(products);
     }
 
     @Test
-    public void whenDeleteLastElementThenSetNull() {
-        Product[] products = {
-                new Product("Milk", 10),
-                new Product("Bread", 5)
-        };
-        Product[] expected = {
-                new Product("Milk", 10),
-                null
-        };
-        Product[] result = ShopDrop.delete(products, 1);
-        assertThat(result).isEqualTo(expected);
+    public void whenArrayIsEmptyThenReturnSameArray() {
+        Product[] products = new Product[0];
+        Product[] result = ShopDrop.delete(products, 0);
+        assertThat(result).isEqualTo(products);
     }
 }
