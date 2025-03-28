@@ -53,4 +53,39 @@ public class ShopDropTest {
         assertThat(result[3].getName()).isEqualTo("Fruit");
         assertThat(result[products.length - 1]).isNull();
     }
+
+    @Test
+    public void whenDeleteNullArrayThenReturnNullArray() {
+        Product[] products = null;
+        Product[] result = ShopDrop.delete(products, 1);
+        assertThat(result).isNull();
+    }
+
+    @Test
+    public void whenDeleteNegativeIndexThenReturnOriginalArray() {
+        Product[] products = {new Product("Milk", 10)};
+        Product[] result = ShopDrop.delete(products, -1);
+        assertThat(result).isEqualTo(products);
+    }
+
+    @Test
+    public void whenDeleteIndexOutOfBoundsThenReturnOriginalArray() {
+        Product[] products = {new Product("Bread", 5)};
+        Product[] result = ShopDrop.delete(products, 1);
+        assertThat(result).isEqualTo(products);
+    }
+
+    @Test
+    public void whenDeleteLastElementThenSetNull() {
+        Product[] products = {
+                new Product("Milk", 10),
+                new Product("Bread", 5)
+        };
+        Product[] expected = {
+                new Product("Milk", 10),
+                null
+        };
+        Product[] result = ShopDrop.delete(products, 1);
+        assertThat(result).isEqualTo(expected);
+    }
 }
