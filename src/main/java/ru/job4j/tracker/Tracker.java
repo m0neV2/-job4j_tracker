@@ -54,9 +54,8 @@ public class Tracker {
         if (result) {
                 item.setId(id);
                 items[index] = item;
-                return true;
             }
-            return false;
+        return result;
         }
 
     public void delete(int id) {
