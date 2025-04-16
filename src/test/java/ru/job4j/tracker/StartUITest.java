@@ -56,11 +56,8 @@ class StartUITest {
     @Test
     void whenDeleteNonExistingItemThenFail() {
         Tracker tracker = new Tracker();
-
         Input input = new MockInput(new String[]{"999"});
-
         StartUI.deleteItem(input, tracker);
-
         assertThat(tracker.findAll()).isEmpty();
     }
 }
