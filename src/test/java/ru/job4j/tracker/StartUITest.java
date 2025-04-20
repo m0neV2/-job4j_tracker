@@ -60,7 +60,7 @@ class StartUITest {
         Item item1 = tracker.add(new Item("Item1"));
         Item item2 = tracker.add(new Item("Item2"));
         Input input = new MockInput(
-                new String[]{"0", "1"} // Выбор FindAll и затем Exit
+                new String[]{"0", "1"}
         );
         UserAction[] actions = {
                 new FindAllAction(output),
@@ -77,7 +77,7 @@ class StartUITest {
         Item item = tracker.add(new Item("FindMe"));
         tracker.add(new Item("Other"));
         Input input = new MockInput(
-                new String[]{"0", "FindMe", "1"} // FindByName, имя, Exit
+                new String[]{"0", "FindMe", "1"}
         );
         UserAction[] actions = {
                 new FindByNameAction(output),
@@ -94,7 +94,7 @@ class StartUITest {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("SearchById"));
         Input input = new MockInput(
-                new String[]{"0", String.valueOf(item.getId()), "1"} // FindById, id, Exit
+                new String[]{"0", String.valueOf(item.getId()), "1"}
         );
         UserAction[] actions = {
                 new FindByIdAction(output),
