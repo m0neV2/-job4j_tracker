@@ -9,7 +9,7 @@ class StartUITest {
     void whenCreateItem() {
         Output output = new StubOutput();
         Input input = new MockInput(
-                new String[] {"0", "Item name", "1"}
+                new String[]{"0", "Item name", "1"}
         );
         Tracker tracker = new Tracker();
         UserAction[] actions = {
@@ -27,7 +27,7 @@ class StartUITest {
         Item item = tracker.add(new Item("Replaced item"));
         String replacedName = "New item name";
         Input input = new MockInput(
-                new String[] {"0", String.valueOf(item.getId()), replacedName, "1"}
+                new String[]{"0", String.valueOf(item.getId()), replacedName, "1"}
         );
         UserAction[] actions = {
                 new ReplaceAction(output),
@@ -43,7 +43,7 @@ class StartUITest {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Deleted item"));
         Input input = new MockInput(
-                new String[] {"0", String.valueOf(item.getId()), "1"}
+                new String[]{"0", String.valueOf(item.getId()), "1"}
         );
         UserAction[] actions = {
                 new DeleteAction(output),
@@ -51,5 +51,56 @@ class StartUITest {
         };
         new StartUI(output).init(input, tracker, actions);
         assertThat(tracker.findById(item.getId())).isNull();
+    }
+
+    @Test
+    void whenFindAllItems() {
+        Output output = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item item1 = tracker.add(new Item("Item1"));
+        Item item2 = tracker.add(new Item("Item2"));
+        Input input = new MockInput(
+                new String[]{"0", "1"} // Выбор FindAll и затем Exit
+        );
+        UserAction[] actions = {
+                new FindAllAction(output),
+                new ExitAction(output)
+        };
+        new StartUI(output).init(input, tracker, actions);
+        assertThat(output.toString()).contains(item1.toString(), item2.toString());
+    }
+
+    @Test
+    void whenFindItemByName() {
+        Output output = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("FindMe"));
+        tracker.add(new Item("Other"));
+        Input input = new MockInput(
+                new String[]{"0", "FindMe", "1"} // FindByName, имя, Exit
+        );
+        UserAction[] actions = {
+                new FindByNameAction(output),
+                new ExitAction(output)
+        };
+        new StartUI(output).init(input, tracker, actions);
+        assertThat(output.toString()).contains(item.toString());
+        assertThat(output.toString()).doesNotContain("Other");
+    }
+
+    @Test
+    void whenFindItemById() {
+        Output output = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("SearchById"));
+        Input input = new MockInput(
+                new String[]{"0", String.valueOf(item.getId()), "1"} // FindById, id, Exit
+        );
+        UserAction[] actions = {
+                new FindByIdAction(output),
+                new ExitAction(output)
+        };
+        new StartUI(output).init(input, tracker, actions);
+        assertThat(output.toString()).contains(item.toString());
     }
 }
