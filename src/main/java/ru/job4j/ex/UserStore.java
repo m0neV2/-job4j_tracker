@@ -8,7 +8,7 @@ public class UserStore {
                 return user;
             }
         }
-        throw new UserNotFoundException("User not found");
+        throw new UserNotFoundException("Пользователь не найден");
     }
 
     public static boolean validate(User user) throws UserInvalidException {
