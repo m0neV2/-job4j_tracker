@@ -26,6 +26,9 @@ public class PasswordValidator {
                 hasSpecial = true;
             }
 
+            if (hasUpCase && hasLowCase && hasDigit && hasSpecial) {
+                break;
+            }
         }
         if (!hasUpCase) {
             throw new IllegalArgumentException(
