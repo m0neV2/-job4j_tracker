@@ -1,24 +1,16 @@
 package checkstyle;
 
-public class Broken {
-    private int sizeOfEmpty = 10;
-    private String surname;
-    private String name;
-    public static final String NEW_VALUE = "";
 
-    public Broken() {
-    }
-
-    public void echo() {
-    }
-
-    public void media(Object obj) {
-        if (obj != null) {
-            System.out.println(obj);
+class Solution {
+    public static int sum(int[] arr) {
+        int result = 0;
+        for (int i = 0; i < arr.length; i++) {
+                result += arr[i];
         }
+        return result;
     }
-
-    public void method(int a, int b, int c, int d, int e, int f, int g) {
-
+    public static void main(String[] args) {
+        int[] array = {1, 2, 3, 4, 6, 8};
+        System.out.println(sum(array));
     }
 }
