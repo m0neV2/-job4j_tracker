@@ -5,11 +5,11 @@ import java.util.ArrayList;
 public class UsageArrayList {
 
     public static void main(String[] args) {
-        ArrayList<Object> names = new ArrayList<>();
+        ArrayList<String> names = new ArrayList<>();
         names.add("Petr");
         names.add("Ivan");
         names.add("Stepan");
-        for (Object value : names) {
+        for (String value : names) {
             System.out.println(value);
         }
     }
