@@ -9,7 +9,7 @@ public class FullSearch {
     public Set<String> extractNumber(List<Task> tasks) {
         HashSet<String> unique = new HashSet<>();
         for (Task num : tasks) {
-        unique.add(num.getNumber());
+            unique.add(num.getNumber());
         }
         return unique;
     }
