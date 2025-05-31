@@ -73,7 +73,6 @@ public class AnalyzeByMap {
         }
 
         public static Label bestSubject(List<Pupil> pupils) {
-
             List<Label> result = new ArrayList<>();
             List<String> subjectNames = new ArrayList<>();
             for (Pupil pupil : pupils) {
