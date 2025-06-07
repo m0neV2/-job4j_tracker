@@ -39,14 +39,8 @@ public class AnalyzeByMap {
             for (Subject subject : pupil.subjects()) {
                 String name = subject.name();
                 int score = subject.score();
-
-                if (subjectScores.containsKey(name)) {
-                    subjectScores.put(name, subjectScores.get(name) + score);
-                    subjectCounts.put(name, subjectCounts.get(name) + 1);
-                } else {
-                    subjectScores.put(name, score);
-                    subjectCounts.put(name, 1);
-                }
+                subjectScores.put(name, subjectScores.getOrDefault(name, 0) + score);
+                subjectCounts.put(name, subjectCounts.getOrDefault(name, 0) + 1);
             }
         }
 
