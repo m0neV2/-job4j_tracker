@@ -15,7 +15,7 @@ public class JobComparatorsTest {
                 new Job("Refactor code", 3),
                 new Job("Add feature", 2)
         );
-        Collections.sort(jobs, new JobComparators.JobAscByName());
+        Collections.sort(jobs, new JobAscByName());
 
         List<Job> expected = Arrays.asList(
                 new Job("Add feature", 2),
@@ -32,7 +32,7 @@ public class JobComparatorsTest {
                 new Job("Refactor code", 3),
                 new Job("Add feature", 2)
         );
-        Collections.sort(jobs, new JobComparators.JobDescByName());
+        Collections.sort(jobs, new JobDescByName());
 
         List<Job> expected = Arrays.asList(
                 new Job("Refactor code", 3),
@@ -49,7 +49,7 @@ public class JobComparatorsTest {
                 new Job("Refactor code", 2),
                 new Job("Add feature", 3)
         );
-        Collections.sort(jobs, new JobComparators.JobAscByPriority());
+        Collections.sort(jobs, new JobAscByPriority());
 
         List<Job> expected = Arrays.asList(
                 new Job("Refactor code", 2),
@@ -66,7 +66,7 @@ public class JobComparatorsTest {
                 new Job("Refactor code", 9),
                 new Job("Add feature", 3)
         );
-        Collections.sort(jobs, new JobComparators.JobDescByPriority());
+        Collections.sort(jobs, new JobDescByPriority());
 
         List<Job> expected = Arrays.asList(
                 new Job("Refactor code", 9),
@@ -84,8 +84,8 @@ public class JobComparatorsTest {
                 new Job("Fix bug", 2),
                 new Job("X task", 0)
         );
-        Collections.sort(jobs, new JobComparators.JobDescByName()
-                .thenComparing(new JobComparators.JobDescByPriority()));
+        Collections.sort(jobs, new JobDescByName()
+                .thenComparing(new JobDescByPriority()));
 
         List<Job> expected = Arrays.asList(
                 new Job("X task", 0),
@@ -104,8 +104,8 @@ public class JobComparatorsTest {
                 new Job("Add feature", 2),
                 new Job("Fix bug", 2)
         );
-        Collections.sort(jobs, new JobComparators.JobAscByName()
-                .thenComparing(new JobComparators.JobAscByPriority()));
+        Collections.sort(jobs, new JobAscByName()
+                .thenComparing(new JobAscByPriority()));
 
         List<Job> expected = Arrays.asList(
                 new Job("Add feature", 2),
