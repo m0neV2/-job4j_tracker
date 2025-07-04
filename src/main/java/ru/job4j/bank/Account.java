@@ -2,10 +2,27 @@ package ru.job4j.bank;
 
 import java.util.Objects;
 
+/**
+ * Класс описывает банковский счет.
+ * Содержит реквизиты и текущий баланс.
+ */
 public class Account {
+    /**
+     * Реквизиты счёта (уникальный идентификатор).
+     */
     private String requisite;
+
+    /**
+     * Баланс счёта.
+     */
     private double balance;
 
+    /**
+     * Конструктор для создания счёта с реквизитами и балансом.
+     *
+     * @param requisite реквизиты счёта
+     * @param balance   текущий баланс
+     */
     public Account(String requisite, double balance) {
         this.requisite = requisite;
         this.balance = balance;
@@ -27,6 +44,9 @@ public class Account {
         this.balance = balance;
     }
 
+    /**
+     * Сравнивает два счёта по реквизитам.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -39,6 +59,9 @@ public class Account {
         return Objects.equals(requisite, account.requisite);
     }
 
+    /**
+     * Возвращает хеш-код на основе реквизитов.
+     */
     @Override
     public int hashCode() {
         return Objects.hash(requisite);
